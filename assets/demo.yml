@@ -1,0 +1,509 @@
+# The configurations that used for the recording, feel free to edit them
+config:
+  # Specify a command to be executed
+  # like `/bin/bash -l`, `ls`, or any other commands
+  # the default is bash for Linux
+  # or powershell.exe for Windows
+  command: powershell.exe "yarn test"
+
+  # Specify the current working directory path
+  # the default is the current working directory path
+  cwd: C:\1dev\Tools\twitchmon
+
+  # Export additional ENV variables
+  env:
+    recording: true
+
+  # Explicitly set the number of columns
+  # or use `auto` to take the current
+  # number of columns of your shell
+  cols: 120
+
+  # Explicitly set the number of rows
+  # or use `auto` to take the current
+  # number of rows of your shell
+  rows: 30
+
+  # Amount of times to repeat GIF
+  # If value is -1, play once
+  # If value is 0, loop indefinitely
+  # If value is a positive number, loop n times
+  repeat: 0
+
+  # Quality
+  # 1 - 100
+  quality: 100
+
+  # Delay between frames in ms
+  # If the value is `auto` use the actual recording delays
+  frameDelay: auto
+
+  # Maximum delay between frames in ms
+  # Ignored if the `frameDelay` isn't set to `auto`
+  # Set to `auto` to prevent limiting the max idle time
+  maxIdleTime: 2000
+
+  # The surrounding frame box
+  # The `type` can be null, window, floating, or solid`
+  # To hide the title use the value null
+  # Don't forget to add a backgroundColor style with a null as type
+  frameBox:
+    type: floating
+    title: Twitch Monitor
+    style:
+      border: 0px black solid
+      # boxShadow: none
+      # margin: 0px
+
+  # Add a watermark image to the rendered gif
+  # You need to specify an absolute path for
+  # the image on your machine or a URL, and you can also
+  # add your own CSS styles
+  watermark:
+    imagePath: null
+    style:
+      position: absolute
+      right: 15px
+      bottom: 15px
+      width: 100px
+      opacity: 0.9
+
+  # Cursor style can be one of
+  # `block`, `underline`, or `bar`
+  cursorStyle: block
+
+  # Font family
+  # You can use any font that is installed on your machine
+  # in CSS-like syntax
+  fontFamily: 'Monaco, Lucida Console, Ubuntu Mono, Monospace'
+
+  # The size of the font
+  fontSize: 12
+
+  # The height of lines
+  lineHeight: 1
+
+  # The spacing between letters
+  letterSpacing: 0
+
+  # Theme
+  theme:
+    background: 'transparent'
+    foreground: '#afafaf'
+    cursor: '#c7c7c7'
+    black: '#232628'
+    red: '#fc4384'
+    green: '#b3e33b'
+    yellow: '#ffa727'
+    blue: '#75dff2'
+    magenta: '#ae89fe'
+    cyan: '#708387'
+    white: '#d5d5d0'
+    brightBlack: '#626566'
+    brightRed: '#ff7fac'
+    brightGreen: '#c8ed71'
+    brightYellow: '#ebdf86'
+    brightBlue: '#75dff2'
+    brightMagenta: '#ae89fe'
+    brightCyan: '#b1c6ca'
+    brightWhite: '#f9f9f4'
+
+# Records, feel free to edit them
+records:
+  - delay: 746
+    content: "\e[32m? \e[m\e[1mTwitch chat to monitor\e[22m "
+  - delay: 2733
+    content: "\e[?25l\e[H\e[K\e[?25h"
+  - delay: 9
+    content: "\e[32m? \e[m\e[1mTwitch chat to monitor\e[22m l"
+  - delay: 200
+    content: "\e[?25l\e[H\e[K\e[?25h"
+  - delay: 9
+    content: "\e[32m? \e[m\e[1mTwitch chat to monitor\e[22m lu"
+  - delay: 68
+    content: "\e[?25l\e[H\e[K\e[?25h"
+  - delay: 9
+    content: "\e[32m? \e[m\e[1mTwitch chat to monitor\e[22m lud"
+  - delay: 159
+    content: "\e[?25l\e[H\e[K\e[?25h"
+  - delay: 8
+    content: "\e[32m? \e[m\e[1mTwitch chat to monitor\e[22m ludw"
+  - delay: 94
+    content: "\e[?25l\e[H\e[K\e[?25h"
+  - delay: 15
+    content: "\e[32m? \e[m\e[1mTwitch chat to monitor\e[22m ludwi"
+  - delay: 55
+    content: "\e[?25l\e[H\e[K\e[?25h"
+  - delay: 8
+    content: "\e[32m? \e[m\e[1mTwitch chat to monitor\e[22m ludwig"
+  - delay: 130
+    content: "\e[?25l\e[H\e[K\e[?25h"
+  - delay: 15
+    content: "\e[32m? \e[m\e[1mTwitch chat to monitor\e[22m \e[36mludwig\r\n"
+  - delay: 64
+    content: "\e[m"
+  - delay: 946
+    content: "  _           _          _       \r\n | |_   _  __| |_      _(_) __ _ \r\n | | | | |/ _` \\ \\ /\\ / / |/ _` |\r\n | | |_| | (_| |\\ V  V /| | (_| |\r\n |_|\\__,_|\\__,_| \\_/\\_/ |_|\\__, |\r\n                           |___/ \r\n"
+  - delay: 181
+    content: "\e[96m[S] \e[38;2;56;34;178mRaffy7777\e[m: POGGIES\r\n"
+  - delay: 17
+    content: "\e[96m[S] \e[38;2;248;60;154mAnya_sc\e[m: FINALLY\r\n"
+  - delay: 26
+    content: " \e[38;2;255;255;255mdamian_x1\e[m: Pog\r\n"
+  - delay: 8
+    content: "\e[96m[S] \e[38;2;138;43;226mpeachu737\e[m: POGGIES\r\n"
+  - delay: 19
+    content: " \e[38;2;238;166;73mIMGh0sTEZ\e[m: yes\r\n"
+  - delay: 19
+    content: " \e[38;2;138;43;226mDrynnman\e[m: NOOOOOO\r\n \e[38;2;255;255;255mHuriasT\e[m: Pog\r\n"
+  - delay: 20
+    content: "\e[96m[S] \e[38;2;255;255;255maldemir2024\e[m: ludwigCheer ludwigCheer ludwigCheer ludwigCheer ludwigCheer\r\n"
+  - delay: 59
+    content: "\e[96m[S] \e[38;2;24;24;24mbunnislyppers\e[m: PauseChamp\r\n"
+  - delay: 8
+    content: " \e[38;2;255;0;0mSGQuickMath\e[m: my points Sadge\r\n"
+  - delay: 74
+    content: "\e[96m[S] \e[38;2;202;255;89mACRONM\e[m: PogU\r\n"
+  - delay: 28
+    content: " \e[38;2;255;105;180mwzylive\e[m: LETSGO\r\n"
+  - delay: 1291
+    content: " \e[38;2;255;255;255mrafadaplaya\e[m: IM RICH\r\n"
+  - delay: 25
+    content: " \e[38;2;0;128;0mJumpyKiller100\e[m: PogU\r\n"
+  - delay: 17
+    content: "\e[96m[S] \e[38;2;9;107;9mgooseman8819\e[m: FINALLY POGGIES\r\n"
+  - delay: 140
+    content: " \e[38;2;138;43;226mburnin_bright\e[m: POGGIES\r\n"
+  - delay: 9
+    content: "\e[96m[S] \e[38;2;138;43;226mZedreo\e[m: Pog\r\n"
+  - delay: 8
+    content: " \e[38;2;138;43;226motheranthony6669\e[m: I WAS HERE\r\n"
+  - delay: 9
+    content: " \e[38;2;255;255;255mjdmkm\e[m: NOOOOOOOOOOOOOOOOOOOOOOOOOOO\r\n"
+  - delay: 108
+    content: "\e[96m[S] \e[38;2;0;215;243mpiincakes\e[m: LETS GOOO\r\n"
+  - delay: 30
+    content: "\e[32m[B100] \e[38;2;30;144;255mfroncakes\e[m: NOOOOO\r\n"
+  - delay: 10
+    content: "\e[96m[S] \e[38;2;255;105;180msinclairHH\e[m: LETSFUCKINGGOOOO\r\n"
+  - delay: 27
+    content: "\e[96m[S] \e[38;2;138;43;226mKiluDoz\e[m: BELIEVERS\r\n"
+  - delay: 59
+    content: "\e[96m[S] \e[38;2;255;0;0mFrozinFier\e[m: Pog\r\n"
+  - delay: 141
+    content: " \e[38;2;0;0;255mACchampy\e[m: Pog\r\n"
+  - delay: 59
+    content: " \e[38;2;30;144;255mDarkFireAUS\e[m: LETS GOOO\r\n"
+  - delay: 107
+    content: " \e[38;2;218;165;32mcyubit\e[m: NO FUCKING WAY\r\n"
+  - delay: 33
+    content: "\e[96m[S] \e[38;2;255;105;180mateBitLive\e[m: HE WON!\r\n"
+  - delay: 39
+    content: "\e[96m[S] \e[38;2;255;0;0mhatterLS\e[m: OMEGALUL DOUBTERS\r\n \e[38;2;218;165;32mYourDeadNeopet\e[m: NOOOOOOO\r"
+  - delay: 5
+    content: "\n\e[36m[T] \e[38;2;255;105;180mChristophersen\e[m: EL LUDWIGO\e[K\r\n"
+  - delay: 86
+    content: "\e[96m[S] \e[38;2;255;0;0mGaGames1\e[m: ludwigU ludwigU ludwigU ludwigU\r\n"
+  - delay: 15
+    content: "\e[96m[S] \e[38;2;34;165;178mmegdog10\e[m: POGGIES WOOOO\r\n"
+  - delay: 122
+    content: " \e[38;2;255;255;255msham_will1\e[m: Pog\r\n"
+  - delay: 16
+    content: " \e[38;2;0;128;0mprivtwt\e[m: NOOOOOOOOOOOO\r\n \e[38;2;0;255;127mrasec0101\e[m: POGGIES\e[K\r\n"
+  - delay: 37
+    content: "\e[96m[S] \e[38;2;95;158;160mmysteriousqueen_1\e[m: LETS GOOOO\r\n"
+  - delay: 13
+    content: " \e[38;2;95;158;160mmadeline__rose\e[m: NOOOOOOOOOOOOOOOOOOO\r"
+  - delay: 5
+    content: |+
+
+  - delay: 20
+    content: " \e[38;2;178;34;34mArnaIas\e[m: POGGIES\r\n \e[38;2;178;34;34mVaquitaOfficial\e[m: RIGGED!!!!\r"
+  - delay: 6
+    content: |+
+
+  - delay: 146
+    content: "\e[96m[S] \e[38;2;30;144;255mGatorghost\e[m: dude\r\n"
+  - delay: 36
+    content: " \e[38;2;43;149;255mitsGBreezy\e[m: MY GOLDWIGGG\r\n"
+  - delay: 17
+    content: " \e[38;2;46;139;87mastoldbyganja\e[m: POGGIES POGGIES POGGIES POGGIES\r\n"
+  - delay: 52
+    content: " \e[38;2;0;128;0msircheesethethird\e[m: NOOOOOOOOOOO\r\n"
+  - delay: 86
+    content: " \e[38;2;255;255;255msophiaxc13\e[m: NOOOOOOOOOOO\r\n"
+  - delay: 42
+    content: " \e[38;2;95;158;160mRinnifty\e[m: Pog\r\n"
+  - delay: 18
+    content: "\e[96m[S] \e[38;2;30;144;255mManoMax21\e[m: ITS HIS GAME\r\n"
+  - delay: 10
+    content: "\e[96m[S] \e[38;2;0;128;0moZyssah\e[m: Pog finally\r"
+  - delay: 7
+    content: |+
+
+  - delay: 49
+    content: " \e[38;2;0;255;127mjamesinaxx\e[m: Pog\r\n"
+  - delay: 8
+    content: " \e[38;2;255;105;180m1nept\e[m: Pog\r"
+  - delay: 13
+    content: |+
+
+  - delay: 37
+    content: " \e[38;2;255;255;255mblackboxtransmission\e[m: Pog\r\n"
+  - delay: 26
+    content: " \e[38;2;255;255;255mnebulaboi23\e[m: my points\r\n"
+  - delay: 30
+    content: "\e[96m[S] \e[38;2;248;60;154mAnya_sc\e[m: LETSGO\r\n"
+  - delay: 57
+    content: " \e[38;2;0;128;0mkevn4\e[m: KomodoHype KomodoHype KomodoHype\r\n"
+  - delay: 9
+    content: "\e[96m[S] \e[38;2;255;255;255maldemir2024\e[m: ludwigBlankies ludwigBlankies ludwigBlankies ludwigBlankies\r"
+  - delay: 8
+    content: |+
+
+  - delay: 841
+    content: "\e[92m[M]\e[35m[P] \e[38;2;91;153;255mStreamElements\e[m: https://linktr.ee/Y4RD\r\n"
+  - delay: 377
+    content: " \e[38;2;255;105;180mhooisit__\e[m: YAYYYAY\r\n"
+  - delay: 38
+    content: " \e[38;2;69;205;255mwave5455\e[m: fuck\r\n"
+  - delay: 38
+    content: "\e[96m[S] \e[38;2;255;0;0mtime0utbox\e[m: Pog\r\n"
+  - delay: 18
+    content: "\e[96m[S] \e[38;2;138;43;226mcarsynagen\e[m: FREE MONEY\r\n"
+  - delay: 51
+    content: "\e[96m[S] \e[38;2;138;43;226mZedreo\e[m: EZ Clap\r\n"
+  - delay: 27
+    content: " \e[38;2;0;0;255mStromy14\e[m: PagChomp\r\n \e[38;2;255;0;0mamino04\e[m: !atriocban\r"
+  - delay: 16
+    content: "\n \e[38;2;0;255;127mMyDogJinx\e[m: FUCK YES!\e[K\r\n"
+  - delay: 98
+    content: " \e[38;2;249;51;150mPinkGandalf_\e[m: PogU\r\n"
+  - delay: 128
+    content: " \e[38;2;105;90;177msoisosLIVE\e[m: POGGERS\r\n"
+  - delay: 27
+    content: "\e[92m[M]\e[35m[P] \e[38;2;91;153;255mStreamElements\e[m: @amino04, Atrioc is currently banned for 3 days for showing penises on stream while doing a Wikip\r\n\e[29;120Hpedia race to Erectile Dysfunction.\r\n"
+  - delay: 161
+    content: "\e[96m[S] \e[38;2;255;69;0mWillwood\e[m: LETS FUCKING GOOOOOOOOOOOOO\r\n"
+  - delay: 8
+    content: " \e[38;2;255;0;0mToc_578\e[m: EZ Clap\r"
+  - delay: 10
+    content: |+
+
+  - delay: 26
+    content: " \e[38;2;255;105;180mweirdwild\e[m: i was here\r\n"
+  - delay: 48
+    content: " \e[38;2;255;255;255mkwiitt\e[m: noooo\r\n"
+  - delay: 39
+    content: " \e[38;2;95;158;160mmadeline__rose\e[m: SHIIIIIIIIIIT\r\n"
+  - delay: 22
+    content: "\e[96m[S] \e[38;2;255;255;255mazzazznatio\e[m: Drake\r\n"
+  - delay: 31
+    content: "\e[35m[P] \e[38;2;0;113;255mClipsoTheAlien\e[m: KalenaGrey\r\n"
+  - delay: 154
+    content: " \e[38;2;254;191;0mTypeGoons\e[m: PO\r\n"
+  - delay: 21
+    content: " \e[38;2;255;255;255mehychgee\e[m: POGGIES\r"
+  - delay: 15
+    content: |+
+
+  - delay: 24
+    content: " \e[38;2;46;139;87manemohaxor\e[m: OMEGALUL\r\n"
+  - delay: 125
+    content: " \e[38;2;255;69;0mmelaei\e[m: Pog\r\n"
+  - delay: 102
+    content: " \e[38;2;30;144;255mbenefit123\e[m: LETSGO\r\n"
+  - delay: 89
+    content: " \e[38;2;30;144;255mmissyginzy\e[m: YESS\r\n\e[96m[S] \e[38;2;128;179;234mDudak\e[m: FINALLY\r"
+  - delay: 6
+    content: |+
+
+  - delay: 34
+    content: "\e[32m[B100] \e[38;2;30;144;255mfroncakes\e[m: THE ONE TIME\r\n"
+  - delay: 29
+    content: " \e[38;2;255;255;255mashvault\e[m: pog\r\n"
+  - delay: 48
+    content: " \e[38;2;255;105;180merica_whaley\e[m: NOOOOO MY POINTS\r\n"
+  - delay: 13
+    content: "\e[96m[S] \e[38;2;212;175;3mnappylem\e[m: PogU FIRST WIN\r\n"
+  - delay: 84
+    content: "\e[96m[S] \e[38;2;46;139;87mGoooooovin\e[m: MY POINTS\r\n"
+  - delay: 26
+    content: "\e[96m[S] \e[38;2;255;105;180m小白胖\e[m: LETSGO\r"
+  - delay: 7
+    content: |+
+
+  - delay: 39
+    content: "\e[96m[S] \e[38;2;0;255;127mlandrow\e[m: PogU\r\n"
+  - delay: 65
+    content: "\e[96m[S] \e[38;2;195;255;204msodapop678\e[m: Pog\r\n"
+  - delay: 1373
+    content: " \e[38;2;178;34;34mxizai_\e[m: Pog\r\n"
+  - delay: 63
+    content: "\e[96m[S] \e[38;2;34;165;178mmegdog10\e[m: EZ Clap\r\n"
+  - delay: 49
+    content: " \e[38;2;204;0;180mFaangs\e[m: haven't played this  game in yearsss\r\n"
+  - delay: 108
+    content: "\e[96m[S] \e[38;2;255;105;180maniyilator\e[m: ludwigCheer ludwigCheer ludwigCheer\r\n"
+  - delay: 84
+    content: " \e[38;2;234;0;255mMitchell_dear\e[m: wooooooo\r\n"
+  - delay: 95
+    content: " \e[38;2;178;34;34mVaquitaOfficial\e[m: D: RIGGED\r\n"
+  - delay: 80
+    content: "\e[96m[S] \e[38;2;255;0;0mMcCarry\e[m: RIGGED\r\n"
+  - delay: 21
+    content: " \e[38;2;178;34;34mMagatsuGrant\e[m: PogU\r"
+  - delay: 8
+    content: |+
+
+  - delay: 114
+    content: " \e[38;2;138;43;226mghardori\e[m: YOOOOOOOOOOOOOOOOOOOOOOOOOOOO\r\n"
+  - delay: 74
+    content: " \e[38;2;255;255;255mWeeWooLive_\e[m: LETSGO\r\n"
+  - delay: 111
+    content: " \e[38;2;0;143;204mLoppemaster\e[m: PogU\r\n"
+  - delay: 106
+    content: " \e[38;2;0;255;127mIansbede\e[m: LETS GO EZ Clap\r\n"
+  - delay: 16
+    content: " \e[38;2;255;255;255mmarcosjth\e[m: LETSGO\r"
+  - delay: 10
+    content: |+
+
+  - delay: 24
+    content: " \e[38;2;30;144;255mDarkFireAUS\e[m: POG\r\n"
+  - delay: 13
+    content: " \e[38;2;255;255;255mmhzac\e[m: Noooo\r"
+  - delay: 5
+    content: |+
+
+  - delay: 10
+    content: " \e[38;2;0;255;127mzazberry\e[m: BELIEVER POGGIES\r\n"
+  - delay: 15
+    content: "\e[96m[S] \e[38;2;255;255;255mthescottula\e[m: POGGIES\r\n"
+  - delay: 134
+    content: " \e[38;2;255;105;180msimfloral\e[m: Pog\r\n"
+  - delay: 187
+    content: " \e[38;2;179;25;25mXianxias\e[m: Win was givin\r\n"
+  - delay: 95
+    content: "\e[96m[S] \e[38;2;196;115;180mtys0nnnnn\e[m: POGGIES MY STREAMER\r\n"
+  - delay: 45
+    content: " \e[38;2;95;158;160msoftteatears\e[m: LETSGO\r\n"
+  - delay: 15
+    content: " \e[38;2;0;255;127miKURM\e[m: GOD AMONGST MEN\r"
+  - delay: 7
+    content: |+
+
+  - delay: 45
+    content: " \e[38;2;0;128;0mmikevens7\e[m: PogU\r\n"
+  - delay: 127
+    content: " \e[38;2;30;144;255mmoominope\e[m: Pog\r\n"
+  - delay: 21
+    content: "\e[96m[S] \e[38;2;32;190;218mT0kennek0T\e[m: Drake\r\n \e[38;2;255;0;0mms_INDER\e[m: KomodoHype\e[K\r\n"
+  - delay: 26
+    content: " \e[38;2;0;255;127malishift99\e[m: Pog\r\n"
+  - delay: 261
+    content: "\e[96m[S]\e[32m[B10000] \e[38;2;171;64;255mThor10001\e[m: Pog\r\n"
+  - delay: 61
+    content: " \e[38;2;255;105;180mmallory666hfx\e[m: OMEGLAUL the one round i didn't vote\r\n"
+  - delay: 60
+    content: " \e[38;2;178;34;34mGothingbop\e[m: BELEIVERS\r\n"
+  - delay: 11
+    content: " \e[38;2;255;105;180mLordChafe\e[m: MY POINTS\r\n"
+  - delay: 63
+    content: " \e[38;2;178;34;34mOmegaKrome\e[m: FINALLY\r\n"
+  - delay: 62
+    content: " \e[38;2;0;0;255mStromy14\e[m: I WAS HERE\r\n"
+  - delay: 22
+    content: " \e[38;2;0;255;127mperrin_flyy\e[m: I bet everything\r\n"
+  - delay: 141
+    content: " \e[38;2;255;255;255mkwiitt\e[m: noooooo\r\n"
+  - delay: 84
+    content: " \e[38;2;95;158;160mfoxesdeluxe\e[m: He won finally\r\n"
+  - delay: 130
+    content: "\e[96m[S] \e[38;2;255;105;180matuadios\e[m: I WAS ALL IN NOOO D:\r\n"
+  - delay: 43
+    content: " \e[38;2;0;0;255mGvistic\e[m: doubters\r\n"
+  - delay: 456
+    content: "\e[96m[S] \e[38;2;138;43;226mBreannahS\e[m: EZ CLAP I KNEW IT\r\n"
+  - delay: 79
+    content: " \e[38;2;255;255;255mleistallion\e[m: WAIT WHAT\r\n"
+  - delay: 262
+    content: " \e[38;2;255;0;0mTryan2353\e[m: NOOOOOOOOOOOOO\r\n"
+  - delay: 102
+    content: " \e[38;2;209;147;8mVancelius\e[m: rigged by tina\r\n"
+  - delay: 242
+    content: " \e[38;2;138;43;226mcynbae\e[m: mu poinys lmao\r\n"
+  - delay: 53
+    content: "\e[96m[S] \e[38;2;62;180;137mjtgamer2119\e[m: GLORIOUS DAY\r\n"
+  - delay: 5
+    content: " \e[38;2;218;165;32mHikazeYattis\e[m: Tina actually threw\r"
+  - delay: 12
+    content: |+
+
+  - delay: 44
+    content: "\e[96m[S] \e[38;2;255;105;180m小白胖\e[m: EZ Clap\r\n"
+  - delay: 32
+    content: " \e[38;2;255;69;0mBaronAzra\e[m: all gone LULW\r\n"
+  - delay: 66
+    content: "\e[36m[T] \e[38;2;56;157;70mEbrimaYT\e[m: LETSSSS FUCKING GOOO\r\n"
+  - delay: 215
+    content: " \e[38;2;255;255;255mmorganmarihildas\e[m: I WAS HERE PogU\r\n"
+  - delay: 349
+    content: " \e[38;2;0;255;127mzoom2071\e[m: PogU LETS GOOO\r\n"
+  - delay: 29
+    content: " \e[38;2;255;255;255mPK_UU\e[m: YOOOOOOOO\r"
+  - delay: 7
+    content: |+
+
+  - delay: 283
+    content: "\e[96m[S] \e[38;2;255;0;0mtoler7\e[m: PagMan\r\n"
+  - delay: 54
+    content: "\e[96m[S] \e[38;2;138;43;226mJulezOP\e[m: POG\r\n"
+  - delay: 9
+    content: " \e[38;2;30;144;255mmissyginzy\e[m: LETS GOOO\r"
+  - delay: 21
+    content: |+
+
+  - delay: 83
+    content: "\e[96m[S] \e[38;2;0;128;0mxdRubikz\e[m: PogChamp PogChamp PogChamp PogChamp PogChamp PogChamp Kreygasm\r\n"
+  - delay: 216
+    content: " \e[38;2;204;0;105mNexisX\e[m: i bet 30 K points on that\r\n"
+  - delay: 202
+    content: " \e[38;2;255;105;180mUniversalGod1234\e[m: LETSGO A LUDWIG DUB LETSGO\r\n"
+  - delay: 113
+    content: " \e[38;2;255;105;180mEllie_Noire\e[m: EASY POINTS\r\n \e[38;2;0;255;127mneptunenat\e[m: NOOOOO\r"
+  - delay: 17
+    content: |+
+
+  - delay: 105
+    content: " \e[38;2;255;255;255mjittyyy\e[m: PogU\r\n"
+  - delay: 13
+    content: " \e[38;2;255;105;180mfakelilac_\e[m: HOLY SHIT PLUS A MILLION\r\n"
+  - delay: 136
+    content: "\e[96m[S] \e[38;2;255;255;255mMarkyBoy2004\e[m: Oh my jeez\r\n"
+  - delay: 363
+    content: " \e[38;2;255;255;255mdeism420\e[m: Lets go\r\n"
+  - delay: 13
+    content: "\e[96m[S] \e[38;2;138;43;226mJulezOP\e[m: Pog\r"
+  - delay: 5
+    content: |+
+
+  - delay: 8
+    content: "\e[96m[S] \e[38;2;30;144;255mMexiJovi22\e[m: I WON A MIL\r\n"
+  - delay: 5
+    content: "\e[96m[S] \e[38;2;0;0;255mnebfreak\e[m: Finally after points lost over and over\r\n"
+  - delay: 81
+    content: "\e[96m[S] \e[38;2;255;255;255mkopiquick\e[m: POGGIES\r\n \e[38;2;138;43;226mAJRedddy\e[m: We're in the board!\r"
+  - delay: 12
+    content: |+
+
+  - delay: 73
+    content: " \e[38;2;218;165;32mchicken_jar\e[m: lets goooo\r\n"
+  - delay: 162
+    content: " \e[38;2;255;105;180mwzylive\e[m: PogU IM RICH\r\n"
+  - delay: 238
+    content: "\e[96m[S] \e[38;2;20;102;19mKaelan_beaudoin\e[m: ludwigCheer ludwigCheer ludwigCheer\r\n"
+  - delay: 17
+    content: "\e[96m[S] \e[38;2;219;174;0mjkidn\e[m: LETSGO\r\n"
+  - delay: 540
+    content: " \e[38;2;255;255;255marweafq\e[m: believers eating good EZ\r\n"
