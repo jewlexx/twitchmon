@@ -12,4 +12,8 @@ Monitor a Twitch chat directly from the console
 - Sub, cheer and system messages
 - Chat clearing supported
 
+## Install
+
+`npm i -g twitchmon`
+
 **Developed with ❤️ by jamesinaxx**
