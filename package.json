@@ -9,7 +9,7 @@
   "license": "MIT",
   "scripts": {
     "build": "rimraf out && node build.js",
-    "prepack": "rimraf out && yarn build",
+    "prepack": "yarn build",
     "test": "./bin/twitchmon"
   },
   "keywords": [
