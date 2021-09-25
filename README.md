@@ -2,6 +2,8 @@
 
 Monitor a Twitch chat directly from the console
 
+[![Demo Gif](https://raw.githubusercontent.com/jamesinaxx/twitchmon/public/assets/render.gif)](https://github.com/jamesinaxx/twitchmon)
+
 ## Features
 
 - Beautiful, clean UI
