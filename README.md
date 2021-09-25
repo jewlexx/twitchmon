@@ -16,4 +16,20 @@ Monitor a Twitch chat directly from the console
 
 `npm i -g twitchmon`
 
-**Developed with ❤️ by jamesinaxx**
+## Badge reference
+
+- \[BR\]: Broadcaster
+- \[M\]: Moderator
+- \[S\]: Subscriber
+- \[SG\]: Sub Gifter
+- \[V\]: VIP
+- \[F\]: Founder
+- \[P\]: Partner
+- \[BL\]: Bits Leader
+- \[B#\]: Bits #Number of bits
+- \[ST\]: Staff
+- \[A\]: Admin
+- \[GM\]: Global Mod
+- \[T\]: Turbo
+
+### Developed with ❤️ by jamesinaxx
