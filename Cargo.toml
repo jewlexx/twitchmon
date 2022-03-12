@@ -6,4 +6,5 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-twitchchat = { version = "0.14", features = ["async"] }
+twitchchat = { version = "0.14", features = ["async", "async-io"] }
+anyhow = "1.0"
