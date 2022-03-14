@@ -1,3 +1,5 @@
+use std::str::FromStr;
+
 use anyhow::Context as _;
 use colored::Colorize;
 use twitchchat::{messages, AsyncRunner, Status, UserConfig};
@@ -53,19 +55,23 @@ pub async fn message_loop(mut runner: AsyncRunner) -> anyhow::Result<()> {
     Ok(())
 }
 
+// TODO: Parse closest color
 // you can generally ignore the lifetime for these types.
 async fn handle_message(msg: messages::Commands<'_>) {
     use messages::Commands::*;
+
     // All sorts of messages
     match msg {
         // This is the one users send to channels
-        Privmsg(msg) => println!(
-            "[{}] {}: {}",
-            msg.channel(),
-            msg.name(),
-            msg.data()
-                .on_color(msg.color().unwrap_or_default().rgb.to_string()),
-        ),
+        Privmsg(msg) => {
+            let color = colored::Color::from_str(&msg.color().unwrap_or_default().rgb.to_string());
+            println!(
+                "[{}] {}: {}",
+                msg.channel(),
+                msg.name(),
+                msg.data().on_color(color),
+            )
+        }
 
         // This one is special, if twitch adds any new message
         // types, this will catch it until future releases of
