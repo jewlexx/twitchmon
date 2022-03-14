@@ -58,7 +58,13 @@ async fn handle_message(msg: messages::Commands<'_>) {
     // All sorts of messages
     match msg {
         // This is the one users send to channels
-        Privmsg(msg) => println!("[{}] {}: {}", msg.channel(), msg.name(), msg.data()),
+        Privmsg(msg) => println!(
+            "[{}] {}: {}, {}",
+            msg.channel(),
+            msg.name(),
+            msg.data(),
+            msg.color().unwrap_or_default().rgb
+        ),
 
         // This one is special, if twitch adds any new message
         // types, this will catch it until future releases of
