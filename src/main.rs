@@ -3,7 +3,7 @@ use twitchchat::{commands, connector, runner::AsyncRunner, UserConfig};
 
 // this is a helper module to reduce code deduplication
 mod include;
-use crate::include::{channels_to_join, get_user_config, main_loop};
+use crate::include::{channels_to_join, get_user_config, message_loop};
 
 async fn connect(user_config: &UserConfig, channels: &[String]) -> anyhow::Result<AsyncRunner> {
     // create a connector using ``async_io``, this connects to Twitch.
@@ -80,6 +80,6 @@ fn main() -> anyhow::Result<()> {
 
         println!("starting main loop");
         // your 'main loop'. you'll just call next_message() until you're done
-        main_loop(runner).await
+        message_loop(runner).await
     }))
 }
