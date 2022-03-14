@@ -1,5 +1,3 @@
-use std::io::{stdin, stdout, Read, Write};
-
 use anyhow::Context as _;
 use twitchchat::{messages, AsyncRunner, Status, UserConfig};
 
@@ -31,12 +29,7 @@ pub fn channels_to_join() -> anyhow::Result<Vec<String>> {
 }
 
 pub async fn message_loop(mut runner: AsyncRunner) -> anyhow::Result<()> {
-    let mut input = Vec::<u8>::new();
-
     loop {
-        let mut buf = Vec::<u8>::new();
-        stdin().read_to_end(&mut buf).unwrap_or(0);
-
         match runner.next_message().await? {
             // this is the parsed message -- across all channels (and notifications from Twitch)
             Status::Message(msg) => {
@@ -54,11 +47,7 @@ pub async fn message_loop(mut runner: AsyncRunner) -> anyhow::Result<()> {
                 break;
             }
         }
-
-        input.append(&mut buf);
     }
-
-    stdout().write_all(&input).unwrap_or(());
 
     Ok(())
 }
