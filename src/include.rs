@@ -1,4 +1,5 @@
 use anyhow::Context as _;
+use colored::Colorize;
 use twitchchat::{messages, AsyncRunner, Status, UserConfig};
 
 // some helpers for the demo
@@ -59,11 +60,11 @@ async fn handle_message(msg: messages::Commands<'_>) {
     match msg {
         // This is the one users send to channels
         Privmsg(msg) => println!(
-            "[{}] {}: {}, {}",
+            "[{}] {}: {}",
             msg.channel(),
             msg.name(),
-            msg.data(),
-            msg.color().unwrap_or_default().rgb
+            msg.data()
+                .on_color(msg.color().unwrap_or_default().rgb.to_string()),
         ),
 
         // This one is special, if twitch adds any new message
