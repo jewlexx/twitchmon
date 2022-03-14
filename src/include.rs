@@ -35,7 +35,7 @@ pub async fn message_loop(mut runner: AsyncRunner) -> anyhow::Result<()> {
 
     loop {
         let mut buf = Vec::<u8>::new();
-        stdin().read_to_end(&mut buf).unwrap();
+        stdin().read_to_end(&mut buf).unwrap_or(0);
 
         match runner.next_message().await? {
             // this is the parsed message -- across all channels (and notifications from Twitch)
@@ -58,7 +58,7 @@ pub async fn message_loop(mut runner: AsyncRunner) -> anyhow::Result<()> {
         input.append(&mut buf);
     }
 
-    stdout().write_all(&input).unwrap();
+    stdout().write_all(&input).unwrap_or(());
 
     Ok(())
 }
