@@ -78,7 +78,7 @@ fn main() -> anyhow::Result<()> {
         //         .await?;
         // }
 
-        println!("starting main loop");
+        println!("starting message loop");
         // your 'main loop'. you'll just call next_message() until you're done
         message_loop(runner).await
     }))
