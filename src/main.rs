@@ -72,11 +72,11 @@ fn main() -> anyhow::Result<()> {
             .detach();
 
         // you can encode all sorts of 'commands'
-        for channel in &channels {
-            writer
-                .encode(commands::privmsg(channel, "hello world!"))
-                .await?;
-        }
+        // for channel in &channels {
+        //     writer
+        //         .encode(commands::privmsg(channel, "hello world!"))
+        //         .await?;
+        // }
 
         println!("starting main loop");
         // your 'main loop'. you'll just call next_message() until you're done
