@@ -1,4 +1,3 @@
-#![allow(dead_code)]
 use anyhow::Context as _;
 use twitchchat::{messages, AsyncRunner, Status, UserConfig};
 
@@ -29,8 +28,7 @@ pub fn channels_to_join() -> anyhow::Result<Vec<String>> {
     Ok(vec!["xqcow".into()])
 }
 
-// a 'main loop'
-pub async fn main_loop(mut runner: AsyncRunner) -> anyhow::Result<()> {
+pub async fn message_loop(mut runner: AsyncRunner) -> anyhow::Result<()> {
     loop {
         match runner.next_message().await? {
             // this is the parsed message -- across all channels (and notifications from Twitch)
