@@ -51,25 +51,25 @@ fn main() -> anyhow::Result<()> {
         let mut writer = runner.writer();
 
         // spawn something off in the background that'll exit in 10 seconds
-        executor
-            .spawn({
-                let mut writer = writer.clone();
-                let channels = channels.clone();
-                async move {
-                    println!("in 10 seconds we'll exit");
-                    async_io::Timer::after(std::time::Duration::from_secs(10)).await;
+        // executor
+        //     .spawn({
+        //         let mut writer = writer.clone();
+        //         let channels = channels.clone();
+        //         async move {
+        //             println!("in 10 seconds we'll exit");
+        //             async_io::Timer::after(std::time::Duration::from_secs(10)).await;
 
-                    // send one final message to all channels
-                    for channel in channels {
-                        let cmd = commands::privmsg(&channel, "goodbye, world");
-                        writer.encode(cmd).await.unwrap();
-                    }
+        // send one final message to all channels
+        // for channel in channels {
+        //     let cmd = commands::privmsg(&channel, "goodbye, world");
+        //     writer.encode(cmd).await.unwrap();
+        // }
 
-                    println!("sending quit signal");
-                    quit_handle.notify().await;
-                }
-            })
-            .detach();
+        //             println!("sending quit signal");
+        //             quit_handle.notify().await;
+        //         }
+        //     })
+        //     .detach();
 
         // you can encode all sorts of 'commands'
         // for channel in &channels {

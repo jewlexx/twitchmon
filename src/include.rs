@@ -26,7 +26,7 @@ pub fn get_user_config() -> anyhow::Result<twitchchat::UserConfig> {
 
 // channels can be either in the form of '#museun' or 'museun'. the crate will internally add the missing #
 pub fn channels_to_join() -> anyhow::Result<Vec<String>> {
-    Ok(vec!["kinzixx".into()])
+    Ok(vec!["xqcow".into()])
 }
 
 // a 'main loop'
