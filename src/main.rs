@@ -19,6 +19,8 @@ macro_rules! flush {
     };
 }
 
+const ANON_USERNAME: &str = "justinfan1234";
+
 async fn connect(user_config: &UserConfig, channels: &[String]) -> anyhow::Result<AsyncRunner> {
     let connector = connector::async_io::Connector::twitch()?;
 
@@ -29,7 +31,7 @@ async fn connect(user_config: &UserConfig, channels: &[String]) -> anyhow::Resul
     flush!();
 
     let name = runner.identity.username();
-    if name == "justinfan1234" {
+    if name == ANON_USERNAME {
         println!("\nLogged in as anonymous. NOTE: This means you will have limited privileges!");
     } else {
         println!("\nLogged in as {}", name);
