@@ -1,6 +1,7 @@
 use std::process::exit;
 
 use anyhow::Context;
+use colored::{self, Colorize};
 use twitchchat::{connector, runner::AsyncRunner, UserConfig};
 
 mod include;
@@ -47,8 +48,7 @@ fn main() -> anyhow::Result<()> {
         let runner = connect(&user_config, &channels).await?;
 
         ctrlc::set_handler(move || {
-            print!("\rClosing down safely...");
-            flush!();
+            print!("\r{}", "Closing down safely...\n".blue());
 
             exit(0);
         })
