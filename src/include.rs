@@ -7,9 +7,9 @@ use clap::Parser;
 #[derive(Parser, Debug)]
 #[clap(author, version, about, long_about = None)]
 pub struct Args {
+    // #[clap(short, long)]
     /// Name of the channel to join
-    #[clap(short, long)]
-    channels: String,
+    channels: Vec<String>,
 }
 
 // some helpers for the demo
@@ -37,5 +37,5 @@ pub fn get_user_config() -> anyhow::Result<UserConfig> {
 
 // channels can be either in the form of '#museun' or 'museun'. the crate will internally add the missing #
 pub fn channels_to_join() -> Vec<String> {
-    vec![Args::parse().channels]
+    Args::parse().channels
 }
