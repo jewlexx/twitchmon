@@ -1,7 +1,7 @@
 use std::process::exit;
 
 use anyhow::Context;
-use colored::{self, Colorize};
+use colored::Colorize;
 use twitchchat::{connector, runner::AsyncRunner, UserConfig};
 
 mod include;
