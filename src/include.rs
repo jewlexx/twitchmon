@@ -17,7 +17,7 @@ fn get_env_var(key: &str) -> anyhow::Result<String> {
     std::env::var(key).with_context(|| format!("please set `{}`", key))
 }
 
-pub fn get_user_config() -> anyhow::Result<twitchchat::UserConfig> {
+pub fn get_user_config() -> anyhow::Result<UserConfig> {
     let name = get_env_var("TWITCH_NAME").unwrap_or_else(|_| twitchchat::ANONYMOUS_LOGIN.0.into());
     let token =
         get_env_var("TWITCH_TOKEN").unwrap_or_else(|_| twitchchat::ANONYMOUS_LOGIN.1.into());
