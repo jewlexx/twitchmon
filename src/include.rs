@@ -47,7 +47,8 @@ pub fn channels_to_join() -> Vec<String> {
     let channels = Args::parse().channels;
 
     if channels.is_empty() {
-        panic!("You must provide channels to join!")
+        println!("You must provide channels to join!");
+        std::process::exit(1)
     }
 
     channels

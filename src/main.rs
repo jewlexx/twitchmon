@@ -1,5 +1,3 @@
-use std::process::exit;
-
 use anyhow::Context;
 use colored::Colorize;
 use twitchchat::{connector, runner::AsyncRunner, UserConfig};
@@ -50,7 +48,7 @@ fn main() -> anyhow::Result<()> {
         ctrlc::set_handler(move || {
             print!("\r{}", "Closing down safely...\n".bright_red());
 
-            exit(0);
+            std::process::exit(0);
         })
         .unwrap();
 
