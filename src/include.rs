@@ -69,9 +69,10 @@ async fn handle_message(msg: messages::Commands<'_>) {
                 Color::TrueColor { r, g, b }
             };
             println!(
-                "[{}] {}",
+                "[{}] {}: {}",
                 msg.channel(),
-                format!("{}: {}", msg.name(), msg.data()).color(color)
+                msg.name().bold().color(color),
+                msg.data()
             )
         }
 
