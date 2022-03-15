@@ -27,7 +27,7 @@ pub fn get_user_config() -> anyhow::Result<twitchchat::UserConfig> {
 
 // channels can be either in the form of '#museun' or 'museun'. the crate will internally add the missing #
 pub fn channels_to_join() -> anyhow::Result<Vec<String>> {
-    Ok(vec!["xqcow".into()])
+    Ok(vec!["qtcinderella".into()])
 }
 
 pub async fn message_loop(mut runner: AsyncRunner) -> anyhow::Result<()> {
@@ -71,9 +71,9 @@ async fn handle_message(msg: messages::Commands<'_>) {
             };
             let channels = channels_to_join().unwrap_or_default();
             println!(
-                "{}{}: {}",
+                "{} {}: {}",
                 if channels.len() > 1 {
-                    format!("[{}] ", msg.channel())
+                    format!("[{}]", msg.channel())
                 } else {
                     "".into()
                 },
