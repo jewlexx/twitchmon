@@ -38,9 +38,9 @@ async fn connect(user_config: &UserConfig, channels: &[String]) -> anyhow::Resul
     }
 
     for channel in channels {
-        println!("attempting to join '{}'", channel);
+        println!("Attempting to join '{}'", channel);
         let _ = runner.join(channel).await?;
-        println!("joined '{}'!", channel);
+        println!("Joined '{}'!", channel);
     }
 
     Ok(runner)
@@ -63,7 +63,7 @@ fn main() -> anyhow::Result<()> {
         })
         .unwrap();
 
-        println!("starting message loop");
+        println!("Starting message loop");
 
         message_loop(runner).await
     }))
