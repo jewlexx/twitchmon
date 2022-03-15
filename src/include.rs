@@ -8,8 +8,9 @@ fn get_env_var(key: &str) -> anyhow::Result<String> {
 }
 
 pub fn get_user_config() -> anyhow::Result<twitchchat::UserConfig> {
-    let name = get_env_var("TWITCH_NAME")?;
-    let token = get_env_var("TWITCH_TOKEN")?;
+    let name = get_env_var("TWITCH_NAME").unwrap_or_else(|_| twitchchat::ANONYMOUS_LOGIN.0.into());
+    let token =
+        get_env_var("TWITCH_TOKEN").unwrap_or_else(|_| twitchchat::ANONYMOUS_LOGIN.1.into());
 
     // you need a `UserConfig` to connect to Twitch
     let config = UserConfig::builder()
@@ -68,9 +69,14 @@ async fn handle_message(msg: messages::Commands<'_>) {
                 };
                 Color::TrueColor { r, g, b }
             };
+            let channels = channels_to_join().unwrap_or_default();
             println!(
-                "[{}] {}: {}",
-                msg.channel(),
+                "{}{}: {}",
+                if channels.len() > 1 {
+                    format!("[{}] ", msg.channel())
+                } else {
+                    "".into()
+                },
                 msg.name().bold().color(color),
                 msg.data()
             )

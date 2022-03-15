@@ -1,16 +1,39 @@
+use std::{
+    io::{stdout, Write},
+    process::exit,
+};
+
+use anyhow::Context;
 use twitchchat::{connector, runner::AsyncRunner, UserConfig};
 
 mod include;
 use include::{channels_to_join, get_user_config, message_loop};
 
+macro_rules! flush {
+    () => {
+        stdout()
+            .lock()
+            .flush()
+            .with_context(|| "Failed to flush stdout")
+            .unwrap();
+    };
+}
+
 async fn connect(user_config: &UserConfig, channels: &[String]) -> anyhow::Result<AsyncRunner> {
     let connector = connector::async_io::Connector::twitch()?;
 
-    println!("we're connecting!");
+    print!("Connecting...");
+    flush!();
     let mut runner = AsyncRunner::connect(connector, user_config).await?;
-    println!("..and we're connected");
+    print!("\rConnected!");
+    flush!();
 
-    println!("our identity: {:#?}", runner.identity);
+    let name = runner.identity.username();
+    if name == "justinfan1234" {
+        println!("\nLogged in as anonymous. NOTE: This means you will have limited privileges!");
+    } else {
+        println!("\nLogged in as {}", name);
+    }
 
     for channel in channels {
         println!("attempting to join '{}'", channel);
@@ -30,20 +53,13 @@ fn main() -> anyhow::Result<()> {
         // connect and join the provided channel(s)
         let runner = connect(&user_config, &channels).await?;
 
-        let _quit_handle = runner.quit_handle();
+        ctrlc::set_handler(move || {
+            print!("\rClosing down safely...");
+            flush!();
 
-        // spawn something off in the background that'll exit in 10 seconds
-        // executor
-        //     .spawn({
-        //         async move {
-        //             println!("in 10 seconds we'll exit");
-        //             async_io::Timer::after(std::time::Duration::from_secs(10)).await;
-
-        //             println!("sending quit signal");
-        //             quit_handle.notify().await;
-        //         }
-        //     })
-        //     .detach();
+            exit(0);
+        })
+        .unwrap();
 
         println!("starting message loop");
 
