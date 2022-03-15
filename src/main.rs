@@ -1,23 +1,14 @@
-use std::{
-    io::{stdout, Write},
-    process::exit,
-};
+use std::process::exit;
 
 use anyhow::Context;
 use twitchchat::{connector, runner::AsyncRunner, UserConfig};
 
 mod include;
-use include::{channels_to_join, get_user_config, message_loop};
+mod macros;
+mod messages;
 
-macro_rules! flush {
-    () => {
-        stdout()
-            .lock()
-            .flush()
-            .with_context(|| "Failed to flush stdout")
-            .unwrap();
-    };
-}
+use include::{channels_to_join, get_user_config};
+use messages::message_loop;
 
 const ANON_USERNAME: &str = "justinfan1234";
 
