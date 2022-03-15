@@ -7,8 +7,16 @@ use clap::Parser;
 #[derive(Parser, Debug)]
 #[clap(author, version, about, long_about = None)]
 pub struct Args {
-    /// Name of the channel to join
+    /// Names of the channels chats to join
     channels: Vec<String>,
+
+    /// Your desired login username
+    #[clap(short, long)]
+    username: Option<String>,
+
+    /// The oauth token matching the given username NOTE: NOT YOUR PASSWORD
+    #[clap(short, long)]
+    token: Option<String>,
 }
 
 // some helpers for the demo
