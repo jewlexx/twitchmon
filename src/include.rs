@@ -1,6 +1,6 @@
 use anyhow::Context as _;
 use colored::{Color, Colorize};
-use twitchchat::{messages, twitch::color::RGB, AsyncRunner, Status, UserConfig};
+use twitchchat::{messages, AsyncRunner, Status, UserConfig};
 
 // some helpers for the demo
 fn get_env_var(key: &str) -> anyhow::Result<String> {
@@ -53,13 +53,6 @@ pub async fn message_loop(mut runner: AsyncRunner) -> anyhow::Result<()> {
     Ok(())
 }
 
-macro_rules! parse_color {
-    ($color:expr) => {
-        $color;
-    };
-}
-
-// TODO: Parse closest color
 // you can generally ignore the lifetime for these types.
 async fn handle_message(msg: messages::Commands<'_>) {
     use messages::Commands::*;
@@ -71,15 +64,14 @@ async fn handle_message(msg: messages::Commands<'_>) {
             let color = {
                 let (r, g, b) = match &msg.color() {
                     Some(v) => (v.rgb.0, v.rgb.1, v.rgb.2),
-                    None => (0, 0, 0),
+                    None => (255, 255, 255),
                 };
                 Color::TrueColor { r, g, b }
             };
             println!(
-                "[{}] {}: {}",
+                "[{}] {}",
                 msg.channel(),
-                msg.name(),
-                msg.data().color(color),
+                format!("{}: {}", msg.name(), msg.data()).color(color)
             )
         }
 
