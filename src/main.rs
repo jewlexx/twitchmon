@@ -48,7 +48,7 @@ fn main() -> anyhow::Result<()> {
         let runner = connect(&user_config, &channels).await?;
 
         ctrlc::set_handler(move || {
-            print!("\r{}", "Closing down safely...\n".blue());
+            print!("\r{}", "Closing down safely...\n".bright_red());
 
             exit(0);
         })
