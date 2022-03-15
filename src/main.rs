@@ -7,7 +7,7 @@ use anyhow::Context;
 use twitchchat::{connector, runner::AsyncRunner, UserConfig};
 
 mod include;
-use include::{get_args, get_user_config, message_loop};
+use include::{channels_to_join, get_user_config, message_loop};
 
 macro_rules! flush {
     () => {
@@ -48,7 +48,7 @@ async fn connect(user_config: &UserConfig, channels: &[String]) -> anyhow::Resul
 
 fn main() -> anyhow::Result<()> {
     let user_config = get_user_config()?;
-    let channels = channels_to_join!();
+    let channels = channels_to_join();
 
     let executor = async_executor::Executor::new();
     futures_lite::future::block_on(executor.run(async {

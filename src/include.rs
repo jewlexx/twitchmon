@@ -2,13 +2,15 @@ use anyhow::Context as _;
 use colored::{Color, Colorize};
 use twitchchat::{messages, AsyncRunner, Status, UserConfig};
 
-pub fn get_args(arg: &'static str) -> Vec<String> {
-    let mut args = pico_args::Arguments::from_env();
+use clap::Parser;
 
-    match args.values_from_str::<&'static str, String>(arg) {
-        Ok(v) => v,
-        Err(_) => vec![],
-    }
+/// Monitor Twitch Chat
+#[derive(Parser, Debug)]
+#[clap(author, version, about, long_about = None)]
+pub struct Args {
+    /// Name of the channel to join
+    #[clap(short, long)]
+    channels: String,
 }
 
 // some helpers for the demo
@@ -34,12 +36,9 @@ pub fn get_user_config() -> anyhow::Result<twitchchat::UserConfig> {
     Ok(config)
 }
 
-#[macro_export]
 // channels can be either in the form of '#museun' or 'museun'. the crate will internally add the missing #
-macro_rules! channels_to_join {
-    () => {
-        get_args("channels")
-    };
+pub fn channels_to_join() -> Vec<String> {
+    vec![Args::parse().channels]
 }
 
 pub async fn message_loop(mut runner: AsyncRunner) -> anyhow::Result<()> {
@@ -81,7 +80,7 @@ async fn handle_message(msg: messages::Commands<'_>) {
                 };
                 Color::TrueColor { r, g, b }
             };
-            let channels = channels_to_join!();
+            let channels = channels_to_join();
             println!(
                 "{} {}: {}",
                 if channels.len() > 1 {
