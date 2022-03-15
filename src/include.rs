@@ -44,5 +44,11 @@ pub fn get_user_config() -> anyhow::Result<UserConfig> {
 
 // channels can be either in the form of '#museun' or 'museun'. the crate will internally add the missing #
 pub fn channels_to_join() -> Vec<String> {
-    Args::parse().channels
+    let channels = Args::parse().channels;
+
+    if channels.is_empty() {
+        panic!("You must provide channels to join!")
+    }
+
+    channels
 }
