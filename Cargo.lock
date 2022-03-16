@@ -44,6 +44,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "async-fs"
+version = "1.5.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "8b3ca4f8ff117c37c278a2f7415ce9be55560b846b5bc4412aaa5d29c1c3dae2"
+dependencies = [
+ "async-lock",
+ "blocking",
+ "futures-lite",
+]
+
+[[package]]
 name = "async-io"
 version = "1.6.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -63,10 +74,53 @@ dependencies = [
 ]
 
 [[package]]
+name = "async-lock"
+version = "2.5.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e97a171d191782fba31bb902b14ad94e24a68145032b7eedf871ab0bc0d077b6"
+dependencies = [
+ "event-listener",
+]
+
+[[package]]
+name = "async-net"
+version = "1.6.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "5373304df79b9b4395068fb080369ec7178608827306ce4d081cba51cac551df"
+dependencies = [
+ "async-io",
+ "blocking",
+ "futures-lite",
+]
+
+[[package]]
+name = "async-process"
+version = "1.3.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "83137067e3a2a6a06d67168e49e68a0957d215410473a740cea95a2425c0b7c6"
+dependencies = [
+ "async-io",
+ "blocking",
+ "cfg-if",
+ "event-listener",
+ "futures-lite",
+ "libc",
+ "once_cell",
+ "signal-hook",
+ "winapi",
+]
+
+[[package]]
 name = "async-task"
 version = "4.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "30696a84d817107fc028e049980e09d5e140e8da8f1caeb17e8e950658a3cea9"
+
+[[package]]
+name = "atomic-waker"
+version = "1.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "065374052e7df7ee4047b1160cca5e1467a12351a40b3da123c870ba0b8eda2a"
 
 [[package]]
 name = "atty"
@@ -90,6 +144,20 @@ name = "bitflags"
 version = "1.3.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "bef38d45163c2f1dde094a7dfd33ccf595c92905c8f8f4fdc18d06fb1037718a"
+
+[[package]]
+name = "blocking"
+version = "1.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c6ccb65d468978a086b69884437ded69a90faab3bbe6e67f242173ea728acccc"
+dependencies = [
+ "async-channel",
+ "async-task",
+ "atomic-waker",
+ "fastrand",
+ "futures-lite",
+ "once_cell",
+]
 
 [[package]]
 name = "cache-padded"
@@ -395,6 +463,25 @@ dependencies = [
 ]
 
 [[package]]
+name = "signal-hook"
+version = "0.3.13"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "647c97df271007dcea485bb74ffdb57f2e683f1306c854f468a0c244badabf2d"
+dependencies = [
+ "libc",
+ "signal-hook-registry",
+]
+
+[[package]]
+name = "signal-hook-registry"
+version = "1.4.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e51e73328dc4ac0c7ccbda3a494dfa03df1de2f46018127f60c693f2648455b0"
+dependencies = [
+ "libc",
+]
+
+[[package]]
 name = "simple-mutex"
 version = "1.1.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -408,6 +495,24 @@ name = "slab"
 version = "0.4.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "9def91fd1e018fe007022791f865d0ccc9b3a0d5001e01aabb8b40e46000afb5"
+
+[[package]]
+name = "smol"
+version = "1.2.5"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "85cf3b5351f3e783c1d79ab5fc604eeed8b8ae9abd36b166e8b87a089efd85e4"
+dependencies = [
+ "async-channel",
+ "async-executor",
+ "async-fs",
+ "async-io",
+ "async-lock",
+ "async-net",
+ "async-process",
+ "blocking",
+ "futures-lite",
+ "once_cell",
+]
 
 [[package]]
 name = "socket2"
@@ -459,12 +564,12 @@ checksum = "123f2cab8e6afe5183f40523e4f628b230ddcdbbabf0c094fb946eac73cb0da3"
 dependencies = [
  "async-channel",
  "async-dup",
- "async-io",
  "fastrand",
  "futures-lite",
  "futures-timer",
  "log",
  "pin-project-lite 0.1.12",
+ "smol",
 ]
 
 [[package]]
@@ -472,12 +577,10 @@ name = "twitchmon"
 version = "0.1.0"
 dependencies = [
  "anyhow",
- "async-executor",
- "async-io",
  "clap",
  "colored",
  "ctrlc",
- "futures-lite",
+ "smol",
  "twitchchat",
 ]
 

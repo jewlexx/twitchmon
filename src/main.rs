@@ -12,7 +12,7 @@ use messages::message_loop;
 const ANON_USERNAME: &str = "justinfan1234";
 
 async fn connect(user_config: &UserConfig, channels: &[String]) -> anyhow::Result<AsyncRunner> {
-    let connector = connector::async_io::Connector::twitch()?;
+    let connector = connector::smol::Connector::twitch()?;
 
     print!("Connecting...");
     flush!();
@@ -37,11 +37,10 @@ async fn connect(user_config: &UserConfig, channels: &[String]) -> anyhow::Resul
 }
 
 fn main() -> anyhow::Result<()> {
-    let user_config = get_user_config()?;
-    let channels = channels_to_join();
+    let fut = async move {
+        let user_config = get_user_config()?;
+        let channels = channels_to_join();
 
-    let executor = async_executor::Executor::new();
-    futures_lite::future::block_on(executor.run(async {
         // connect and join the provided channel(s)
         let runner = connect(&user_config, &channels).await?;
 
@@ -55,5 +54,7 @@ fn main() -> anyhow::Result<()> {
         println!("Starting message loop");
 
         message_loop(runner).await
-    }))
+    };
+
+    smol::block_on(fut)
 }
