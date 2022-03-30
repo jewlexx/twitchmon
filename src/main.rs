@@ -14,11 +14,9 @@ const ANON_USERNAME: &str = "justinfan1234";
 async fn connect(user_config: &UserConfig, channels: &[String]) -> anyhow::Result<AsyncRunner> {
     let connector = connector::smol::Connector::twitch()?;
 
-    print!("Connecting...");
-    flush!();
+    printf!("Connecting...");
     let mut runner = AsyncRunner::connect(connector, user_config).await?;
-    print!("\rConnected!");
-    flush!();
+    printf!("\rConnected!");
 
     let name = runner.identity.username();
     if name == ANON_USERNAME {

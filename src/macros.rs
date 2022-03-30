@@ -10,3 +10,11 @@ macro_rules! flush {
             .unwrap();
     }};
 }
+
+#[macro_export]
+macro_rules! printf {
+    ($($arg:tt)*) => {
+        print!($($arg)*);
+        flush!();
+    }
+}
